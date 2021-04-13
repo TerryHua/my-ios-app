@@ -16,6 +16,43 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+
+
+    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    
+    UIViewController *controller1 = [[UIViewController alloc] init];
+    controller1.view.backgroundColor = [UIColor grayColor];
+    controller1.tabBarItem.title = @"首页";
+   
+    UIViewController *controller2 = [[UIViewController alloc] init];
+    controller2.view.backgroundColor = [UIColor yellowColor];
+    controller2.tabBarItem.title = @"订单";
+    
+    UIViewController *controller3 = [[UIViewController alloc] init];
+    controller3.view.backgroundColor = [UIColor redColor];
+    controller3.tabBarItem.title = @"下单";
+
+
+    UIViewController *controller4 = [[UIViewController alloc] init];
+    controller4.view.backgroundColor = [UIColor blueColor];
+    controller4.tabBarItem.title = @"我的";
+
+    [tabbarController setViewControllers:@[controller1, controller2, controller3, controller4]];
+    
+    
+    if (@available(iOS 13.0, *)) {
+       
+        
+    } else {
+         
+        self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+        self.window.rootViewController = tabbarController;
+        self.window.backgroundColor = [UIColor blueColor];
+        [self.window makeKeyAndVisible];
+           
+    }
+   
     return YES;
 }
 

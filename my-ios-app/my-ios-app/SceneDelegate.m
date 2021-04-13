@@ -18,6 +18,46 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+    
+    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    
+    UIViewController *controller1 = [[UIViewController alloc] init];
+    controller1.view.backgroundColor = [UIColor grayColor];
+    controller1.tabBarItem.title = @"首页";
+    controller1.tabBarItem.image = [UIImage imageNamed:@"tabbar_home_normal"];
+    controller1.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_home_selected"];
+    
+
+    
+    UIViewController *controller2 = [[UIViewController alloc] init];
+    controller2.view.backgroundColor = [UIColor yellowColor];
+    controller2.tabBarItem.title = @"订单";
+    controller2.tabBarItem.image = [UIImage imageNamed:@"tabbar_order_normal"];
+    controller2.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_order_selected"];
+
+    UIViewController *controller3 = [[UIViewController alloc] init];
+    controller3.view.backgroundColor = [UIColor redColor];
+    controller3.tabBarItem.title = @"下单";
+    controller3.tabBarItem.image = [UIImage imageNamed:@"tabbar_publish"];
+
+    UIViewController *controller4 = [[UIViewController alloc] init];
+    controller4.view.backgroundColor = [UIColor blueColor];
+    controller4.tabBarItem.title = @"我的";
+    controller4.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine_normal"];
+    controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_mine_selected"];
+
+    [tabbarController setViewControllers:@[controller1, controller2, controller3, controller4]];
+    
+    UIWindowScene *windowScene = (UIWindowScene *)scene;
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
+    [self.window setWindowScene:windowScene];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    self.window.rootViewController = tabbarController;
+              
+    [self.window makeKeyAndVisible];
+
 }
 
 
